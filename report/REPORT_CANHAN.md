@@ -110,18 +110,18 @@ Chạy **5 câu hỏi đánh giá của nhóm** trên mã nguồn cá nhân củ
 
 | # | Câu hỏi (Query) | Top-1 Chunk truy xuất được (tóm tắt) | Điểm Score | Có liên quan không? (Relevant) | Câu trả lời của Agent (tóm tắt) |
 |---|-------|--------------------------------|-------|-----------|------------------------|
-| 1 | Shopee: thời hạn Trả hàng/Hoàn tiền và gửi lại hàng | Chunk về đổi phụ kiện tại Điện Máy Xanh; không có mốc 15 ngày/6 ngày của Shopee. | 0.237 | Không | Agent mock không thể trả lời đáng tin cậy vì ngữ cảnh top-1 sai nguồn. |
-| 2 | Lazada: chi phí đồng kiểm và nơi liên hệ của NBH | FAQ Lazada về người mua tiếp tục yêu cầu trả hàng/hoàn tiền; không trực tiếp trả lời hai ý hỏi. Top-3 có chunk `lazada-joint-inspection-seller#1` chứa gold answer. | 0.159 | Top-1: không; Top-3: có | Khi dùng đúng chunk top-3, câu trả lời là NBH không trả thêm phí và liên hệ Bộ phận Hỗ trợ NBH PSC. |
-| 3 | HACOM: 15 ngày đổi mới và bảo hành tận nơi | Chunk mở đầu chính sách đổi trả Shopee, không có điều kiện Thẻ bảo hành vàng hoặc phạm vi 20 km. | 0.251 | Không | Agent mock không có ngữ cảnh HACOM cần thiết nên không thể kết luận đúng. |
-| 4 | Điện Máy Xanh: thời hạn trả hàng và bằng chứng video | Chunk về trách nhiệm người bán/sàn tại Điện Máy Xanh; đúng nền tảng nhưng thiếu mốc 15 ngày và yêu cầu video. | 0.303 | Không đủ | Không chấm là trả lời đúng vì ngữ cảnh top-1 không chứa các chi tiết gold answer. |
-| 5 | AVAKids: đổi trả đồ chơi lỗi kỹ thuật và bảo hành | Chunk về phụ kiện của Điện Máy Xanh, không nói về đồ chơi AVAKids. Gold document xuất hiện ở top-2 nhưng chunk đó là mục đồ dùng cho bé, không phải đồ chơi. | 0.235 | Không | Agent mock không có bằng chứng đủ cho câu trả lời 30 ngày và không bảo hành. |
+| 1 | Shopee: thời hạn Trả hàng/Hoàn tiền và gửi lại hàng | Chunk Shopee nêu người mua gửi trả hàng cho người bán trong 6 ngày; các chunk Shopee khác trong top-3 chứa bối cảnh thời hạn yêu cầu. | 0.853 | Có | Từ ngữ cảnh Shopee: yêu cầu Trả hàng/Hoàn tiền trong 15 ngày từ khi giao thành công; khi chấp nhận thì gửi lại hàng trong 6 ngày. |
+| 2 | Lazada: chi phí đồng kiểm và nơi liên hệ của NBH | FAQ Lazada dành cho NBH nêu NBH không chi trả thêm chi phí đồng kiểm. | 0.815 | Có, nhưng chưa đủ cả hai ý | Ngữ cảnh top-1 trả lời được phần chi phí; phần liên hệ Bộ phận Hỗ trợ NBH PSC cần chunk FAQ khác, chưa nằm trong top-3. |
+| 3 | HACOM: 15 ngày đổi mới và bảo hành tận nơi | Chunk HACOM về đổi mới sản phẩm lỗi trong 15 ngày; gold document HACOM đứng top-2. | 0.852 | Có, nhưng chưa đủ cả hai ý | Trả lời được mốc 15 ngày; top-3 chưa đưa đúng chunk về Thẻ bảo hành vàng và phạm vi dưới 20 km. |
+| 4 | Điện Máy Xanh: thời hạn trả hàng và bằng chứng video | Chunk Điện Máy Xanh nêu thời hạn gửi yêu cầu trả hàng 15 ngày sau khi giao thành công. | 0.899 | Có, nhưng thiếu bằng chứng video | Trả lời được mốc 15 ngày; chưa đủ căn cứ trong top-3 để nêu điều kiện video mở gói không cắt ghép. |
+| 5 | AVAKids: đổi trả đồ chơi lỗi kỹ thuật và bảo hành | Chunk mục `Đồ chơi` AVAKids nêu đổi một-một trong 30 ngày khi lỗi kỹ thuật do nhà sản xuất và chỉ áp dụng đổi trả. | 0.902 | Có | Đồ chơi lỗi kỹ thuật được đổi một-một trong 30 ngày kể từ ngày mua và không áp dụng bảo hành. |
 
-**Bao nhiêu câu hỏi trả về chunk có liên quan trong top-3?** 1 / 5
+**Bao nhiêu câu hỏi trả về chunk có liên quan trong top-3?** 5 / 5
 
-> Benchmark dùng `MockEmbedder` mặc định. Backend này sinh vector từ MD5 nên không mã hóa ngữ nghĩa; vì vậy các score và thứ hạng ở bảng trên chỉ dùng để minh họa luồng benchmark, không dùng để kết luận chất lượng retrieval. Chưa cài được local/OpenAI/Gemini embedding thật, nên phần trả lời của agent cũng không được chấm cao.
+> Benchmark này dùng `GeminiEmbedder` với model `gemini-embedding-001`, không còn dùng `MockEmbedder`. Vì vậy score và thứ hạng phản ánh tương đồng ngữ nghĩa tốt hơn; bốn câu q2–q4 vẫn cho thấy top-3 có thể đúng chủ đề nhưng chưa chứa đủ mọi chi tiết cần cho câu trả lời đầy đủ. `bench.py` hiện đo retrieval, không gọi LLM sinh câu trả lời; cột cuối là câu trả lời được đối chiếu trực tiếp từ ngữ cảnh truy xuất.
 
 **Điều hay nhất tôi học được từ thành viên khác / nhóm khác (qua demo):**
-> Cần kiểm tra nội dung thực sự nằm trong chunk, không chỉ kiểm `doc_id` của tài liệu gold xuất hiện ở top-3. Bộ lọc metadata cho q2 cũng cho thấy lọc trước khi search giúp giới hạn đúng đối tượng Nhà Bán Hàng, dù embedding mock vẫn xếp thứ hạng chưa tốt.
+> Cần kiểm tra nội dung thực sự nằm trong chunk, không chỉ kiểm `doc_id` của tài liệu gold xuất hiện ở top-3. Bộ lọc metadata cho q2 giới hạn đúng đối tượng Nhà Bán Hàng Lazada; kết quả Gemini cho thấy semantic embedding đưa đúng nguồn lên đầu, nhưng lựa chọn section vẫn quyết định có trả lời đủ số liệu và điều kiện hay không.
 
 ---
 
@@ -133,5 +133,5 @@ Chạy **5 câu hỏi đánh giá của nhóm** trên mã nguồn cá nhân củ
 | Hướng tiếp cận của tôi (My Approach) | 10 / 10 |
 | Hoàn thiện code (Core Implementation — tests) | 30 / 30 |
 | Dự đoán độ tương tự (Similarity Predictions) | 4 / 5 |
-| Kết quả truy xuất của tôi (Competition Results) | 1 / 10 |
-| **Tổng phần cá nhân** | **50 / 60** |
+| Kết quả truy xuất của tôi (Competition Results) | 7 / 10 |
+| **Tổng phần cá nhân** | **56 / 60** |

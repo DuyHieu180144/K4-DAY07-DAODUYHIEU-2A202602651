@@ -8,9 +8,22 @@ from __future__ import annotations
 
 import re
 import sys
+import os
 from pathlib import Path
 
-from src import Document, EmbeddingStore, FixedSizeChunker, RecursiveChunker, SentenceChunker, _mock_embed
+from dotenv import load_dotenv
+
+from src import (
+    EMBEDDING_PROVIDER_ENV,
+    GEMINI_EMBEDDING_MODEL,
+    Document,
+    EmbeddingStore,
+    FixedSizeChunker,
+    GeminiEmbedder,
+    RecursiveChunker,
+    SentenceChunker,
+    _mock_embed,
+)
 from src.heading_chunker import HeadingChunker
 
 if hasattr(sys.stdout, "reconfigure"):
@@ -45,6 +58,24 @@ class _Tee:
     def flush(self) -> None:
         for stream in self.streams:
             stream.flush()
+
+
+def build_embedding_fn():
+    """Select the benchmark embedding backend from .env."""
+    load_dotenv(dotenv_path=Path(".env"), override=False)
+    provider = os.getenv(EMBEDDING_PROVIDER_ENV, "mock").strip().lower()
+    if provider == "mock":
+        return _mock_embed
+    if provider == "gemini":
+        try:
+            return GeminiEmbedder(
+                model_name=os.getenv("GEMINI_EMBEDDING_MODEL", GEMINI_EMBEDDING_MODEL)
+            )
+        except ImportError as error:
+            raise RuntimeError(
+                "Gemini backend chưa được cài. Chạy: .\\.venv\\Scripts\\python.exe -m pip install google-genai"
+            ) from error
+    raise RuntimeError("EMBEDDING_PROVIDER chỉ hỗ trợ 'mock' hoặc 'gemini' trong bench.py.")
 
 
 def _value(raw: str) -> str:
@@ -149,9 +180,11 @@ def main() -> int:
         print("No chunks loaded. Check DATA_DIR and the selected chunker.")
         return 1
 
-    store = EmbeddingStore(collection_name="policy_benchmark", embedding_fn=_mock_embed)
+    embedding_fn = build_embedding_fn()
+    store = EmbeddingStore(collection_name="policy_benchmark", embedding_fn=embedding_fn)
     store.add_documents(documents)
     print(f"Strategy: {CHUNKER.__class__.__name__}")
+    print(f"Embedding backend: {getattr(embedding_fn, '_backend_name', 'mock embeddings fallback')}")
     print(f"Documents selected: {len({doc.metadata['doc_id'] for doc in documents})}")
     print(f"Chunks loaded: {store.get_collection_size()}")
 
