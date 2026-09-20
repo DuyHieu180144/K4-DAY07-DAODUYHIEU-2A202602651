@@ -7,6 +7,8 @@ document_version: "not-stated"
 audience: both
 category: website-terms
 language: vi
+platform: hacom
+
 ---
 
 # Chính sách và quy định chung HACOM

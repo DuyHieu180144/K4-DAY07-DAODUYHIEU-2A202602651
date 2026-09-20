@@ -15,29 +15,30 @@
 ### Độ tương tự Cosine (Cosine Similarity) (Bài tập 1.1)
 
 **Độ tương tự cosine cao (High cosine similarity) nghĩa là gì?**
-> *Viết 1-2 câu:*
+> Hai embedding có hướng gần nhau, nên hai đoạn văn có ý nghĩa hoặc ngữ cảnh gần nhau. Điểm càng gần 1 thì mức độ tương đồng ngữ nghĩa càng cao.
 
 **Ví dụ có độ tương tự CAO:**
-- Câu A:
-- Câu B:
-- Tại sao tương đồng:
+- Câu A: Tôi muốn đổi chiếc laptop bị lỗi ngay sau khi nhận hàng.
+- Câu B: Khách mua cần thay sản phẩm máy tính bị hỏng trong thời gian đầu.
+- Tại sao tương đồng: Hai câu dùng từ khác nhau nhưng đều nói về yêu cầu đổi một máy tính bị lỗi sau khi mua.
 
 **Ví dụ có độ tương tự THẤP:**
-- Câu A:
-- Câu B:
-- Tại sao khác:
+- Câu A: Chính sách bảo hành yêu cầu giữ nguyên tem niêm phong.
+- Câu B: Hà Nội hôm nay có mưa lớn vào buổi chiều.
+- Tại sao khác: Hai câu thuộc hai chủ đề và mục đích thông tin không liên quan.
 
 **Tại sao độ tương tự cosine (cosine similarity) được ưu tiên hơn khoảng cách Euclid (Euclidean distance) cho text embeddings?**
-> *Viết 1-2 câu:*
+> Cosine so sánh hướng của vector nên tập trung vào quan hệ ngữ nghĩa và ít bị ảnh hưởng bởi độ lớn vector. Với embedding văn bản thường được chuẩn hóa, cosine phản ánh mức gần nhau về nghĩa trực tiếp hơn Euclid.
 
 ### Bài toán tính toán Chunking (Bài tập 1.2)
 
 **Tài liệu 10,000 ký tự, chunk_size=500, overlap=50. Bao nhiêu chunks?**
-> *Trình bày phép tính:*
-> *Đáp án:*
+> *Trình bày phép tính:* `ceil((10000 - 50) / (500 - 50)) = ceil(9950 / 450) = 23`.
+>
+> *Đáp án:* 23 chunks. Kiểm tra lại bằng `FixedSizeChunker(chunk_size=500, overlap=50)` với chuỗi 10.000 ký tự cũng cho 23.
 
 **Nếu độ chồng chéo (overlap) tăng lên 100, số lượng chunk thay đổi thế nào? Tại sao muốn độ chồng chéo nhiều hơn?**
-> *Viết 1-2 câu:*
+> Khi overlap là 100, số chunk là `ceil((10000 - 100) / (500 - 100)) = ceil(9900 / 400) = 25`, tăng từ 23 lên 25. Overlap lớn hơn giữ được ngữ cảnh nằm ở ranh giới hai chunk, nhưng làm tăng số vector cần tạo và lưu trữ.
 
 ---
 

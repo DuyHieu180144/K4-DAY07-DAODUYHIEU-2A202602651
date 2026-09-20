@@ -7,6 +7,7 @@ document_version: "not-stated"
 audience: buyer
 category: warranty-policy
 language: vi
+platform: hacom
 ---
 
 # Quy trình và điều kiện bảo hành HACOM

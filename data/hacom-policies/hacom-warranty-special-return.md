@@ -7,6 +7,7 @@ document_version: "not-stated"
 audience: buyer
 category: warranty-return-policy
 language: vi
+platform: hacom
 ---
 
 # Chính sách bảo hành và đổi trả đặc biệt HACOM

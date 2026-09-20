@@ -20,6 +20,11 @@ from src.embeddings import (
 from src.models import Document
 from src.store import EmbeddingStore
 
+# Keep Vietnamese demo output readable in Windows terminals configured with a
+# legacy code page.  This does not affect environments that already use UTF-8.
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
+
 SAMPLE_FILES = [
     "data/python_intro.txt",
     "data/vector_store_notes.md",

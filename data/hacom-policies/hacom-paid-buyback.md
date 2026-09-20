@@ -7,6 +7,7 @@ document_version: "not-stated"
 audience: buyer
 category: return-buyback-policy
 language: vi
+platform: hacom
 ---
 
 # Chính sách nhập lại hàng tính phí HACOM
