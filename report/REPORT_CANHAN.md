@@ -77,9 +77,10 @@ Vượt qua bộ kiểm thử là điều kiện tính điểm phần này.
 
 ```
 # Dán kết quả (output) của: pytest tests/ -v
+![alt text](image.png)
 ```
 
-**Số lượng bài test vượt qua (pass):** __ / 42
+**Số lượng bài test vượt qua (pass):** 42 / 42
 
 ---
 
