@@ -10,8 +10,6 @@ document_version: "not-stated"
 platform: Lazada
 ---
 
-> Bắt buộc: `audience` + `source_url` + `retrieved_at` + `platform`, cùng ít nhất một trường hữu ích khác như `category`.
-
 # 1. GIỚI THIỆU VỀ CHƯƠNG TRÌNH
 
 Căn cứ theo quy định của Luật bảo vệ quyền lợi người tiêu dùng, đồng thời nhằm nâng cao trải nghiệm mua sắm của khách hàng, góp phần tăng doanh thu gian hàng của Nhà Bán Hàng (NBH), Lazada sẽ chính thức áp dụng Chính sách Đồng Kiểm Lazada kể từ ngày 01/08/2024. Cụ thể:

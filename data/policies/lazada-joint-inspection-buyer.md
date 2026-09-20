@@ -10,8 +10,6 @@ document_version: "not-stated"
 platform: Lazada
 ---
 
-> Bắt buộc: `audience` + `source_url` + `retrieved_at` + `platform`, cùng ít nhất một trường hữu ích khác như `category`.
-
 # 2. CÁCH THỨC NGƯỜI MUA THỰC HIỆN ĐỒNG KIỂM
 
 ## 2.1 Người mua tiến hành đồng kiểm đơn hàng:

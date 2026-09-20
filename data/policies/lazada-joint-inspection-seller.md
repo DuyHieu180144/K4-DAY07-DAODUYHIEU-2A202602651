@@ -10,8 +10,6 @@ document_version: "not-stated"
 platform: Lazada
 ---
 
-> Bắt buộc: `audience` + `source_url` + `retrieved_at` + `platform`, cùng ít nhất một trường hữu ích khác như `category`.
-
 # 3. CÁC CÂU HỎI THƯỜNG GẶP
 
 ## 3.1 NBH có phải trả thêm chi phí cho các đơn hàng đồng kiểm hay không?
@@ -31,4 +29,4 @@ Quy trình hoàn trả đơn đồng kiểm sẽ tương tự như quy trình ho
 NBH vui lòng liên hệ với Bộ Phận Hỗ trợ NBH PSC ngay để được giải quyết.
 
 ## 3.6 Sau khi đồng kiểm, người mua có thể gửi yêu cầu trả hàng/hoàn tiền không?
-Sau đồng kiểm, người mua vẫn có thể yêu cầu trả hàng/ hoàn tiền theo quy định trả hàng/ hoàn tiền của Lazada. 
+Sau đồng kiểm, người mua vẫn có thể yêu cầu trả hàng/ hoàn tiền theo quy định trả hàng/ hoàn tiền của Lazada.

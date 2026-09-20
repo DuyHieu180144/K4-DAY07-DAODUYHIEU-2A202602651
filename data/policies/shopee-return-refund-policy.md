@@ -1,5 +1,5 @@
 ---
-doc_id: return-refund-policy
+doc_id: shopee-return-refund-policy
 title: Chính sách đổi trả và hoàn tiền
 audience: both               # buyer | seller | both
 category: returns-policy

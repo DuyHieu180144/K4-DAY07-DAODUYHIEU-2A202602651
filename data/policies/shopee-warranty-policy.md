@@ -1,5 +1,5 @@
 ---
-doc_id: seller-warranty-policy
+doc_id: shopee-warranty-policy
 title: Chính sách bảo hành dành
 audience: buyer               # buyer | seller | both
 category: warranty-policy
@@ -9,8 +9,6 @@ retrieved_at: 2026-09-20
 document_version: "not-stated"
 platform: "Shopee"
 ---
-
-> Khối metadata phía trên là **template mẫu** cho K4-L3B — thay `source_url`/`retrieved_at`/`document_version` bằng nguồn công khai thật trước khi dùng làm benchmark.
 
 # Chính sách bảo hành dành cho người bán (dữ liệu khởi động)
 

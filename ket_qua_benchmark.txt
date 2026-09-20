@@ -1,0 +1,49 @@
+Strategy: HeadingChunker
+Documents selected: 10
+Chunks loaded: 50
+
+Q1 — Trên Shopee, người mua có thời hạn bao nhiêu ngày để gửi yêu cầu Trả hàng/Hoàn tiền kể từ khi đơn hàng giao thành công, và sau khi được chấp nhận thì có bao nhiêu ngày để gửi trả hàng lại cho người bán?
+Gold doc: shopee-return-refund-policy
+  1. score=0.237 doc_id=dmx-retail-exchange-policy chunk=3
+     ## Phụ kiện, phần mềm và đổi nguyên hộp Phụ kiện đi kèm bị hư được đổi miễn phí trong 12 tháng kể từ ngày mua sản phẩm chính bằng phụ kiện mới có cùng công năng và chất lượng tương...
+  2. score=0.177 doc_id=dmx-marketplace-return-rules chunk=1
+     ## Điều kiện đổi trả Sàn yêu cầu người bán chấp nhận đổi/trả khi lỗi không phát sinh từ khách hàng, gồm các trường hợp: - Sản phẩm có lỗi từ nhà sản xuất hoặc người bán. - Sản phẩm...
+  3. score=0.164 doc_id=avakids-exchange-policy chunk=3
+     ## Đồ dùng cho bé Xe đẩy, nôi, ghế ô-tô, máy hút sữa, máy tiệt trùng bình sữa và máy hâm sữa được đổi một-một trong 30 ngày nếu có lỗi kỹ thuật. Sản phẩm thay thế phải đúng mã sản ...
+
+Q2 — Theo quy định đồng kiểm Lazada dành cho Nhà Bán Hàng (NBH), NBH có phải chịu thêm chi phí nào cho đơn đồng kiểm không và cần liên hệ bộ phận nào nếu kiện hàng hoàn về bị hư hỏng, thiếu hàng?
+Gold doc: lazada-joint-inspection-seller
+Metadata filter: {'audience': 'seller', 'platform': 'Lazada'}
+  1. score=0.159 doc_id=lazada-joint-inspection-seller chunk=6
+     ## 3.6 Sau khi đồng kiểm, người mua có thể gửi yêu cầu trả hàng/hoàn tiền không? Sau đồng kiểm, người mua vẫn có thể yêu cầu trả hàng/ hoàn tiền theo quy định trả hàng/ hoàn tiền c...
+  2. score=0.127 doc_id=lazada-joint-inspection-seller chunk=3
+     ## 3.3 NBH có thể theo dõi đơn đồng kiểm hoàn về như thế nào? NBH có thể theo dõi hành trình đơn hàng hoàn về tương tự như các đơn hàng hoàn trước đây....
+  3. score=0.101 doc_id=lazada-joint-inspection-seller chunk=1
+     ## 3.1 NBH có phải trả thêm chi phí cho các đơn hàng đồng kiểm hay không? NBH sẽ không chi trả thêm bất kỳ chi phí nào cho các đơn hàng trong chính sách này....
+
+Q3 — Tại HACOM, chính sách đổi mới 100% sản phẩm lỗi do nhà sản xuất áp dụng trong bao nhiêu ngày đầu và dịch vụ bảo hành tại nơi sử dụng áp dụng cho đối tượng nào?
+Gold doc: hacom-warranty-process
+  1. score=0.251 doc_id=shopee-return-refund-policy chunk=0
+     # Chính sách đổi trả và hoàn tiền (dữ liệu khởi động) 📌Cập nhật: Từ ngày 27/08/2026, một số sản phẩm thuộc Thiết bị Điện tử & Công nghệ (có niêm phong/kích hoạt/bảo hành) sẽ không ...
+  2. score=0.234 doc_id=shopee-return-refund-policy chunk=8
+     # Chính sách đổi trả và hoàn tiền (dữ liệu khởi động) Người mua sẽ phải gửi trả hàng lại về địa chỉ Người bán trong vòng 6 ngày. Người bán cần theo dõi thông tin vận chuyển của đơn...
+  3. score=0.215 doc_id=lazada-joint-inspection-both chunk=1
+     # 1. GIỚI THIỆU VỀ CHƯƠNG TRÌNH - Chính Sách Đồng Kiểm này sẽ áp dụng cho toàn bộ NBH Lazada, trừ NBH tự giao (DBS Sellers). Tuy nhiên, người mua vẫn có thể gửi yêu cầu đồng kiểm đ...
+
+Q4 — Khách hàng mua trên Sàn TMĐT Điện Máy Xanh có bao nhiêu ngày để gửi yêu cầu trả hàng sau khi giao thành công, và cần cung cấp bằng chứng gì nếu không trả hàng ngay lúc đồng kiểm?
+Gold doc: dmx-marketplace-return-rules
+  1. score=0.303 doc_id=dmx-marketplace-return-rules chunk=5
+     ## Trách nhiệm của người bán và sàn Mọi chi phí hoàn hàng do người bán chịu. Người bán có trách nhiệm chuẩn bị đúng đơn hàng, cung cấp thông tin hàng hóa chính xác, đầy đủ và trung...
+  2. score=0.218 doc_id=dmx-marketplace-return-rules chunk=1
+     ## Điều kiện đổi trả Sàn yêu cầu người bán chấp nhận đổi/trả khi lỗi không phát sinh từ khách hàng, gồm các trường hợp: - Sản phẩm có lỗi từ nhà sản xuất hoặc người bán. - Sản phẩm...
+  3. score=0.157 doc_id=lazada-joint-inspection-buyer chunk=2
+     ## 2.1 Người mua tiến hành đồng kiểm đơn hàng: Khi người mua tiến hành đồng kiểm, người giao hàng sẽ chụp hình/ghi hình lại toàn bộ quá trình đồng kiểm để làm căn cứ, bằng chứng ph...
+
+Q5 — Các sản phẩm đồ chơi bị lỗi kỹ thuật do nhà sản xuất mua tại AVAKids được áp dụng chính sách đổi trả trong bao lâu và có được bảo hành không?
+Gold doc: avakids-exchange-policy
+  1. score=0.235 doc_id=dmx-retail-exchange-policy chunk=3
+     ## Phụ kiện, phần mềm và đổi nguyên hộp Phụ kiện đi kèm bị hư được đổi miễn phí trong 12 tháng kể từ ngày mua sản phẩm chính bằng phụ kiện mới có cùng công năng và chất lượng tương...
+  2. score=0.231 doc_id=avakids-exchange-policy chunk=3
+     ## Đồ dùng cho bé Xe đẩy, nôi, ghế ô-tô, máy hút sữa, máy tiệt trùng bình sữa và máy hâm sữa được đổi một-một trong 30 ngày nếu có lỗi kỹ thuật. Sản phẩm thay thế phải đúng mã sản ...
+  3. score=0.226 doc_id=lazada-joint-inspection-seller chunk=5
+     ## 3.5 NBH phải làm gì nếu đơn hàng hoàn về có vấn đề (thiếu hàng, hư hỏng, tráo sản phẩm khác, tem/nhãn mác không còn nguyên vẹn)? NBH vui lòng liên hệ với Bộ Phận Hỗ trợ NBH PSC ...
