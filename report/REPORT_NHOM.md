@@ -14,31 +14,39 @@
 
 ### Chủ đề (Domain) & Lý Do Chọn
 
-**Chủ đề:** [ví dụ: Customer support FAQ, Luật Việt Nam, công thức nấu ăn, ...]
+**Chủ đề:** Chính sách hậu mãi và quy định mua hàng của HACOM
 
 **Tại sao nhóm chọn chủ đề này?**
-> *Viết 2-3 câu:*
+> Nhóm chọn một nhà bán lẻ cụ thể để các điều khoản về bảo hành, đổi/trả, nhập lại và giao hàng có cùng ngữ cảnh, nguồn gốc rõ ràng. Corpus ưu tiên các chính sách công khai chính thức của HACOM và được làm sạch thủ công, chỉ giữ quy định, điều kiện, thời hạn và mức phí phục vụ truy xuất.
+>
+> Crawler mẫu đã kiểm tra `robots.txt` nhưng bị từ chối cho User-Agent của crawler; vì vậy nhóm không dùng nội dung crawl tự động. Các file là bản tóm lược thủ công từ trang công khai, có lưu URL nguồn và ngày lấy để kiểm chứng.
 
 ### Danh sách tài liệu (Data Inventory)
 
 | # | Tên tài liệu | Nguồn (Source URL) | Ngày lấy / Phiên bản | Số ký tự | Metadata đã gán |
 |---|--------------|------------|--------------------|----------|-----------------|
-| 1 | | | | | |
-| 2 | | | | | |
-| 3 | | | | | |
-| 4 | | | | | |
-| 5 | | | | | |
+| 1 | Chính sách bảo hành và đổi trả đặc biệt HACOM | https://hacom.vn/chinh-sach-bao-hanh-chi-tiet | 2026-09-20 / not-stated | 1,338 | `doc_id`, `audience=buyer`, `category=warranty-return-policy`, `language=vi` |
+| 2 | Quy trình và điều kiện bảo hành HACOM | https://hacom.vn/chinh-sach-bao-hanh | 2026-09-20 / not-stated | 1,262 | `doc_id`, `audience=buyer`, `category=warranty-policy`, `language=vi` |
+| 3 | Chính sách nhập lại hàng tính phí HACOM | https://hacom.vn/chinh-sach-nhap-lai-tinh-phi | 2026-09-20 / not-stated | 1,116 | `doc_id`, `audience=buyer`, `category=return-buyback-policy`, `language=vi` |
+| 4 | Chính sách giao hàng HACOM | https://hacom.vn/chinh-sach-giao-hang | 2026-09-20 / not-stated | 1,037 | `doc_id`, `audience=buyer`, `category=delivery-policy`, `language=vi` |
+| 5 | Chính sách và quy định chung HACOM | https://hacom.vn/chinh-sach-quy-dinh-chung | 2026-09-20 / not-stated | 912 | `doc_id`, `audience=both`, `category=website-terms`, `language=vi` |
 
 **Danh sách kiểm tra quản trị dữ liệu (Data governance checklist):**
-- [ ] Tập tài liệu (Corpus) chỉ chứa nguồn công khai/được phép dùng và không chứa dữ liệu cá nhân, thông tin đăng nhập hoặc tài liệu nội bộ.
-- [ ] Mỗi tài liệu có `source_url`, `retrieved_at`, `document_version` (hoặc ngày hiệu lực) trong metadata.
+- [x] Tập tài liệu chỉ có nguồn công khai, không có dữ liệu đăng nhập, dữ liệu cá nhân hay tài liệu nội bộ. Nội dung menu/footer và liên hệ không liên quan đã bị loại bỏ.
+- [x] Mỗi tài liệu có `source_url`, `retrieved_at`, `document_version` (`not-stated` vì nguồn không nêu phiên bản) trong metadata; `sources.csv` khớp một-một với 5 file.
 
 ### Cấu trúc Metadata (Metadata Schema)
 
 | Trường metadata | Kiểu | Ví dụ giá trị | Tại sao hữu ích cho truy xuất (retrieval)? |
 |----------------|------|---------------|-------------------------------|
-| | | | |
-| | | | |
+| `doc_id` | string | `hacom-paid-buyback` | Định danh ổn định, đối chiếu chính xác với file và `sources.csv`. |
+| `title` | string | `Chính sách nhập lại hàng tính phí HACOM` | Hiển thị nguồn và ngữ cảnh của kết quả truy xuất. |
+| `source_url` | URL | `https://hacom.vn/chinh-sach-nhap-lai-tinh-phi` | Kiểm chứng điều khoản từ trang gốc. |
+| `retrieved_at` | date | `2026-09-20` | Biết thời điểm dữ liệu được lấy vì chính sách có thể thay đổi. |
+| `document_version` | string | `not-stated` | Không bịa số phiên bản khi nguồn không công bố. |
+| `audience` | enum | `buyer`, `both` | Cho phép lọc riêng chính sách hậu mãi của người mua. |
+| `category` | string | `delivery-policy` | Thu hẹp truy xuất theo loại chính sách. |
+| `language` | string | `vi` | Hỗ trợ lọc hoặc chọn embedding phù hợp tiếng Việt. |
 
 ---
 
